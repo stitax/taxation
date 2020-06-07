@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    tools:context=".Application">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="20dp"
+            android:weightSum="3"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/form"
+                android:text="Log Out"
+                android:id="@+id/btn_logout"
+                android:textColor="@color/blackColor"/>
+            <Space
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_assessor"
+                android:text="Assessor"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/layout_assessor">
+            <LinearLayout
+                android:id="@+id/frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/upload"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/upload" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Assessment Building"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="10sp"
+                    android:textSize="37sp" />
+
+                <EditText
+                    android:id="@+id/arpnumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/editform"
+                    android:inputType="number"
+                    android:paddingLeft="5dp"
+                    android:textSize="25sp"
+                    android:hint="ARP Number"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/editform"
+                    android:inputType="number"
+                    android:id="@+id/pinnumber"
+                    android:textSize="25sp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="PIN Number"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Owner"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/editform"
+                    android:id="@+id/owner"
+                    android:textSize="25sp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginBottom="10dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/editform"
+                    android:id="@+id/address_owner"
+                    android:textSize="25sp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Address"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="25dp"
+                    android:inputType="text"
+                    android:background="@drawable/editform"
+                    android:id="@+id/tellNumber_owner"
+                    android:textSize="25sp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Tel. No."/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Administrator/Occupant"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/editform"
+                    android:id="@+id/occupant"
+                    android:textSize="25sp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginBottom="10dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/editform"
+                    android:id="@+id/address_occupant"
+                    android:textSize="25sp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Address"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="25dp"
+                    android:inputType="text"
+                    android:background="@drawable/editform"
+                    android:id="@+id/tellNumber_occupant"
+                    android:textSize="25sp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Tel. No."/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/editform"
+                    android:id="@+id/location"
+                    android:textSize="25sp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Building Location"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/editform"
+                    android:id="@+id/street"
+                    android:textSize="25sp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="No./Street"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/editform"
+                    android:id="@+id/brgy"
+                    android:textSize="25sp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Barangay/District"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next"
+                    android:background="@drawable/form"
+                    android:layout_gravity="end"
+                    android:id="@+id/btn_next"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="25dp"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</ScrollView>

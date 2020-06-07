@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "224792962720",
+    "firebase_url": "https://taxation-1f878.firebaseio.com",
+    "project_id": "taxation-1f878",
+    "storage_bucket": "taxation-1f878.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224792962720:android:2ef0bdce9c05ec779c8bc5",
+        "android_client_info": {
+          "package_name": "com.example.taxation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224792962720-q96vmthdaib54rs4qadr59cean55nvtq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhF1VVh5CPqhsqhXgC9pzUZdpC5z_ZH5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224792962720-q96vmthdaib54rs4qadr59cean55nvtq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

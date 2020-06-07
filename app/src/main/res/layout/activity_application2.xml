@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    tools:context=".Application2">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="20dp"
+            android:weightSum="3"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/form"
+                android:text="Log Out"
+                android:id="@+id/btn_logout2"
+                android:textColor="@color/blackColor"/>
+            <Space
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_assessor2"
+                android:text="Assessor"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Structure Characteristics"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="#FFFFFF"
+            android:textSize="31sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Foundation"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/foundation1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/foundation2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Columns"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/column1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/column2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Beans"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/bean1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/bean2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trus Framing"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/trus1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/trus2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Roof"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/roof1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/roof2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Exterior"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/exterior1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/exterior2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Flooring"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/flooring1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/flooring2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Doors"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/door1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/door2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ceiling"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/ceiling1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/ceiling2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Windows"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/window1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/window2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Stairs"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/stairs1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/stairs2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Partition"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/partition1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/partition2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wall Finish"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/wallfinish1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/wallfinish2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Electrical"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/electrical1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/electrical2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Toilet/Bath"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/toiletbath1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/toiletbath2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Plumbing Sewer"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/plumbingsewer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/plumbingsewer2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fixtures"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/fixtures1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="1st Floor"/>
+        <EditText
+            android:id="@+id/fixtures2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editform"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="25sp"
+            android:hint="2nd Floor"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:background="@drawable/form"
+            android:layout_gravity="end"
+            android:id="@+id/btn_application2"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="25dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
