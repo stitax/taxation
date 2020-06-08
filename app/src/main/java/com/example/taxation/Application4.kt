@@ -71,34 +71,34 @@ class Application4 : AppCompatActivity() {
         currentUserDb.child("Property Assessment").child("Value Computation").child("Assessed Value").child("Building")
             .setValue(value_two.text.toString())
 
-        var assess_one = value_one.text.toString().toInt()
-        var assess_two = value_two.text.toString().toInt()
+        var assess_one = value_one.text.toString().toInt().toFloat()
+        var assess_two = value_two.text.toString().toInt().toFloat()
 
         when(assess_one) {
-            in 0..17500 -> assess_one = 0
-            in 17501..300000 -> assess_one = 10/100
-            in 300001..500000 -> assess_one = 20/100
-            in 500001..750000 -> assess_one = 25/100
-            in 750001..1000000 -> assess_one = 30/100
-            in 1000001..2000000 -> assess_one = 35/100
-            in 2000001..5000000 -> assess_one = 40/100
-            in 5000000..10000000 -> assess_one = 50/100
-            else -> assess_one = 60/100
+            in 0..17500 -> assess_one =  0.toFloat()
+            in 17501..300000 -> assess_one = 0.10.toFloat()
+            in 300001..500000 -> assess_one = 0.20.toFloat()
+            in 500001..750000 -> assess_one = 0.25.toFloat()
+            in 750001..1000000 -> assess_one = 0.30.toFloat()
+            in 1000001..2000000 -> assess_one = 0.35.toFloat()
+            in 2000001..5000000 -> assess_one = 0.40.toFloat()
+            in 5000000..10000000 -> assess_one = 0.50.toFloat()
+            else -> assess_one = 0.60.toFloat()
         }
         when(assess_two) {
-            in 0..17500 -> assess_two = 0
-            in 17501..300000 -> assess_two = 10/100
-            in 300001..500000 -> assess_two = 20/100
-            in 500001..750000 -> assess_two = 25/100
-            in 750001..1000000 -> assess_two = 30/100
-            in 1000001..2000000 -> assess_two = 35/100
-            in 2000001..5000000 -> assess_two = 40/100
-            in 5000000..10000000 -> assess_two = 50/100
-            else -> assess_two = 60/100
+            in 0..17500 -> assess_two =  0.toFloat()
+            in 17501..300000 -> assess_two = 0.10.toFloat()
+            in 300001..500000 -> assess_two = 0.20.toFloat()
+            in 500001..750000 -> assess_two = 0.25.toFloat()
+            in 750001..1000000 -> assess_two = 0.30.toFloat()
+            in 1000001..2000000 -> assess_two = 0.35.toFloat()
+            in 2000001..5000000 -> assess_two = 0.40.toFloat()
+            in 5000000..10000000 -> assess_two = 0.50.toFloat()
+            else -> assess_two = 0.60.toFloat()
         }
-        val land = value_one.text.toString().toInt() * assess_one
-        val building = value_two.text.toString().toInt() * assess_two
-        val tax = (land+building)*0.02
+        val land = value_one.text.toString().toInt().toFloat() * assess_one
+        val building = value_two.text.toString().toInt().toFloat() * assess_two
+        val tax = (land+building)*0.02.toFloat()
         currentUserDb.child("Property Assessment").child("Value Computation").child("tax_payable").setValue(tax)
 
 

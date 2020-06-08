@@ -1,18 +1,18 @@
 package com.sti.taxation.models
 
-class Model {
-
-
-    var image : String? = null
-    var owner : String? = null
+class Model{
+    var Owner: String? = ""
+    var tax_payable: String? = ""
+    var image: String? = ""
 
     constructor(){
 
     }
 
-    constructor(image: String?, owner: String?) {
+    constructor(Owner: String?, tax_payable: String?, image: String?) {
+        this.Owner = Owner
+        this.tax_payable = tax_payable
         this.image = image
-        this.owner = owner
     }
 
 }
