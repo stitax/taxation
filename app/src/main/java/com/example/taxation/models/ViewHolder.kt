@@ -6,12 +6,12 @@ import com.squareup.picasso.Picasso
 import com.sti.taxation.models.Model
 import kotlinx.android.synthetic.main.pending_layout.view.*
 
-class PendingViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
-    fun bindPending(model: Model?){
+    fun bind(model: Model?){
 
         itemView.txt_owner.text = model?.owner
-        itemView.tax_pending.text = model?.tax_payable
+        itemView.tax_pending.text = model?.tax_payable.toString()
         Picasso.get().load(model?.image).into(itemView.image_pending)
 
     }

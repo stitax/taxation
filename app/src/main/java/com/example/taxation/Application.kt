@@ -85,7 +85,6 @@ class Application : AppCompatActivity() {
         }
         val arp = arpnumber.text.toString()
         mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arp)
-        val customer = FirebaseDatabase.getInstance().getReference("Customer").child(arp)
 
 
         val file = mDatabase.key.toString()
@@ -96,7 +95,7 @@ class Application : AppCompatActivity() {
                 mDatabase.child("image").setValue(it.toString())
             }
         }
-        customer.setValue("Pending")
+        mDatabase.child("status").setValue("Pending")
         mDatabase.child("arpNumber").setValue(arp)
         mDatabase.child("pin").setValue(pinnumber.text.toString())
         mDatabase.child("owner").setValue(owner.text.toString())

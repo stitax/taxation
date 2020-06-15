@@ -13,7 +13,8 @@ class Model{
     var location: String? = null
     var street: String? = null
     var barangay: String? = null
-    var tax_payable: String? = null
+    var tax_payable: Double? = null
+    var status: String? = null
 
     constructor(){
 
@@ -32,7 +33,8 @@ class Model{
         location: String?,
         street: String?,
         barangay: String?,
-        tax_payable: String?
+        tax_payable: Double?,
+        status: String?
     ) {
         this.arpNumber = arpNumber
         this.pin = pin
@@ -47,5 +49,8 @@ class Model{
         this.street = street
         this.barangay = barangay
         this.tax_payable = tax_payable
+        this.status = status
     }
+
+
 }
