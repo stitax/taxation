@@ -17,6 +17,7 @@ import com.sti.taxation.models.User
 import kotlinx.android.synthetic.main.activity_application.*
 
 
+@Suppress("DEPRECATION")
 class Application : AppCompatActivity() {
 
     private lateinit var mDatabase: DatabaseReference
@@ -56,8 +57,10 @@ class Application : AppCompatActivity() {
         mDatabase.addValueEventListener(postListener)
         // [END post_value_event_listener]
         btn_logout.setOnClickListener {
-            mDatabase = FirebaseDatabase.getInstance().getReference("Pending").child("${arpnumber.text.toString()}")
+            mDatabase = FirebaseDatabase.getInstance().getReference("Customer").child(arpnumber.text.toString())
            mDatabase.removeValue()
+            mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arpnumber.text.toString())
+            mDatabase.removeValue()
             singOut()
         }
     }
@@ -81,27 +84,30 @@ class Application : AppCompatActivity() {
             return
         }
         val arp = arpnumber.text.toString()
-        mDatabase = FirebaseDatabase.getInstance().getReference("Pending").child("$arp")
+        mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arp)
+        val customer = FirebaseDatabase.getInstance().getReference("Customer").child(arp)
+
 
         val file = mDatabase.key.toString()
         val ref = FirebaseStorage.getInstance().getReference("/images/$file")
         ref.putFile(selectedPhotoUri!!).addOnSuccessListener {
 
             ref.downloadUrl.addOnSuccessListener {
-                mDatabase.child("Property Assessment").child("image").setValue(it.toString())
+                mDatabase.child("image").setValue(it.toString())
             }
         }
-
-        mDatabase.child("Property Assessment").child("PIN").setValue(pinnumber.text.toString())
-        mDatabase.child("Property Assessment").child("Owner").setValue(owner.text.toString())
-        mDatabase.child("Property Assessment").child("Owner_Address").setValue(address_owner.text.toString())
-        mDatabase.child("Property Assessment").child("Owner_Tel No").setValue(tellNumber_owner.text.toString())
-        mDatabase.child("Property Assessment").child("Occupant").setValue(occupant.text.toString())
-        mDatabase.child("Property Assessment").child("Occupant_Address").setValue(address_occupant.text.toString())
-        mDatabase.child("Property Assessment").child("Occupant_Tel No").setValue(tellNumber_occupant.text.toString())
-        mDatabase.child("Property Assessment").child("Location").setValue(location.text.toString())
-        mDatabase.child("Property Assessment").child("Street").setValue(street.text.toString())
-        mDatabase.child("Property Assessment").child("Barangay").setValue(brgy.text.toString())
+        customer.setValue("Pending")
+        mDatabase.child("arpNumber").setValue(arp)
+        mDatabase.child("pin").setValue(pinnumber.text.toString())
+        mDatabase.child("owner").setValue(owner.text.toString())
+        mDatabase.child("ownerAddress").setValue(address_owner.text.toString())
+        mDatabase.child("ownerTelNo").setValue(tellNumber_owner.text.toString())
+        mDatabase.child("occupant").setValue(occupant.text.toString())
+        mDatabase.child("occupantAddress").setValue(address_occupant.text.toString())
+        mDatabase.child("occupantTelNo").setValue(tellNumber_occupant.text.toString())
+        mDatabase.child("location").setValue(location.text.toString())
+        mDatabase.child("street").setValue(street.text.toString())
+        mDatabase.child("barangay").setValue(brgy.text.toString())
 
         val intent = Intent(this, Application2::class.java)
         intent.putExtra("id_number", arp)

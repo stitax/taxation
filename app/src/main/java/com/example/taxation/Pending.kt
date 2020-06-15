@@ -1,66 +1,59 @@
 package com.example.taxation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.database.ChangeEventListener
+import com.example.taxation.models.PendingViewHolder
 import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.google.firebase.database.*
+import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
 import com.sti.taxation.models.Model
 import kotlinx.android.synthetic.main.activity_pending.*
 import kotlinx.android.synthetic.main.pending_layout.view.*
 
+
 class Pending : AppCompatActivity() {
 
     lateinit var mDatabase: DatabaseReference
 
-    private var mAdapter: FirebaseRecyclerAdapter<Model, PendingViewHolder>? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pending)
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("Pending")
-
         Pending.setHasFixedSize(true)
         Pending.layoutManager = LinearLayoutManager(this)
 
-        val query = mDatabase.limitToLast(8)
+        val query = FirebaseDatabase.getInstance()
+            .reference
+            .child("Property Assessment")
+            .limitToLast(8)
 
-        mAdapter = object : FirebaseRecyclerAdapter<Model, PendingViewHolder>(
-            Model::class.java, R.layout.pending_layout, PendingViewHolder::class.java, query
-        ){
-            override fun populateViewHolder(p0: PendingViewHolder?, p1: Model?, p2: Int) {
-                TODO("Not yet implemented")
-                p0?.bindPending(p1!!)
+        val options: FirebaseRecyclerOptions<Model> = FirebaseRecyclerOptions.Builder<Model>()
+            .setQuery(query, Model::class.java)
+            .build()
+
+        val adapter: FirebaseRecyclerAdapter<Model, PendingViewHolder> =
+            object : FirebaseRecyclerAdapter<Model, PendingViewHolder>(options) {
+                override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PendingViewHolder {
+                    // Create a new instance of the ViewHolder, in this case we are using a custom
+                    // layout called R.layout.message for each item
+                    val view: View = LayoutInflater.from(parent.context)
+                        .inflate(R.layout.pending_layout, parent, false)
+                    return PendingViewHolder(view)
+                }
+
+                override fun onBindViewHolder(holder: PendingViewHolder, position: Int, model: Model) {
+                    holder.bindPending(model)
+                }
             }
-
-            override fun onChildChanged(
-                type: ChangeEventListener.EventType?,
-                snapshot: DataSnapshot?,
-                index: Int,
-                oldIndex: Int
-            ) {
-                super.onChildChanged(type, snapshot, index, oldIndex)
-
-                Pending.scrollToPosition(index)
-            }
-        }
-        Pending.adapter = mAdapter
+        Pending.adapter = adapter
     }
 
-}
-class PendingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-
-    fun bindPending(model: Model){
-        with(model){
-            itemView.txt_owner.text = Owner
-            itemView.tax_pending.text = tax_payable
-            Picasso.get().load(model.image).into(itemView.image_pending)
-        }
-    }
 
 }

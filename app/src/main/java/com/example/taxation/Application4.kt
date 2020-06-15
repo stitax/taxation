@@ -11,10 +11,13 @@ import com.google.firebase.database.*
 import com.sti.taxation.models.User
 import kotlinx.android.synthetic.main.activity_application4.*
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class Application4 : AppCompatActivity() {
 
     private lateinit var mDatabase: DatabaseReference
     private lateinit var auth: FirebaseAuth
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +25,8 @@ class Application4 : AppCompatActivity() {
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users")
 
-
-
+        val structures = intent.getStringExtra("structures")
+        value_two.setText(structures)
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // Get Post object and use the values to update the UI
@@ -41,8 +44,14 @@ class Application4 : AppCompatActivity() {
         mDatabase.addValueEventListener(postListener)
 
         btn_logout4.setOnClickListener {
-            val arp = intent.getStringExtra("id_number")
-            mDatabase = FirebaseDatabase.getInstance().getReference("Pending").child(arp)
+            val arp: String = intent.getStringExtra("id_number")
+            mDatabase = FirebaseDatabase.getInstance().getReference("Customer").child(arp)
+            mDatabase.removeValue()
+            mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arp)
+            mDatabase.removeValue()
+            mDatabase = FirebaseDatabase.getInstance().getReference("Structure Characteristics").child(arp)
+            mDatabase.removeValue()
+            mDatabase = FirebaseDatabase.getInstance().getReference("Value Computation").child(arp)
             mDatabase.removeValue()
             singOut()
         }
@@ -57,49 +66,52 @@ class Application4 : AppCompatActivity() {
             return
         }
         //Data from previous form
+        val structures = intent.getStringExtra("structures")
         val id_number = intent.getStringExtra("id_number")
         //end of data
-        mDatabase = FirebaseDatabase.getInstance().getReference("Pending")
+        mDatabase = FirebaseDatabase.getInstance().getReference("Value Computation")
         val currentUserDb = mDatabase.child(id_number)
 
-        currentUserDb.child("Property Assessment").child("Value Computation").child("Market Value").child("Land")
+        currentUserDb.child("Market Value").child("Land")
             .setValue(market_one.text.toString())
-        currentUserDb.child("Property Assessment").child("Value Computation").child("Market Value").child("Building")
+        currentUserDb.child("Market Value").child("Building")
             .setValue(market_two.text.toString())
-        currentUserDb.child("Property Assessment").child("Value Computation").child("Assessed Value").child("Land")
+        currentUserDb.child("Assessed Value").child("Land")
             .setValue(value_one.text.toString())
-        currentUserDb.child("Property Assessment").child("Value Computation").child("Assessed Value").child("Building")
-            .setValue(value_two.text.toString())
+        currentUserDb.child("Assessed Value").child("Building")
+            .setValue(structures)
 
         var assess_one = value_one.text.toString().toInt().toFloat()
-        var assess_two = value_two.text.toString().toInt().toFloat()
+        var assess_two = structures.toInt().toFloat()
 
-        when(assess_one) {
-            in 0..17500 -> assess_one =  0.toFloat()
-            in 17501..300000 -> assess_one = 0.10.toFloat()
-            in 300001..500000 -> assess_one = 0.20.toFloat()
-            in 500001..750000 -> assess_one = 0.25.toFloat()
-            in 750001..1000000 -> assess_one = 0.30.toFloat()
-            in 1000001..2000000 -> assess_one = 0.35.toFloat()
-            in 2000001..5000000 -> assess_one = 0.40.toFloat()
-            in 5000000..10000000 -> assess_one = 0.50.toFloat()
-            else -> assess_one = 0.60.toFloat()
+        assess_one = when(assess_one) {
+            in 0..175000 -> 0.toFloat()
+            in 175001..300000 -> 0.10.toFloat()
+            in 300001..500000 -> 0.20.toFloat()
+            in 500001..750000 -> 0.25.toFloat()
+            in 750001..1000000 -> 0.30.toFloat()
+            in 1000001..2000000 -> 0.35.toFloat()
+            in 2000001..5000000 -> 0.40.toFloat()
+            in 5000000..10000000 -> 0.50.toFloat()
+            else -> 0.60.toFloat()
         }
-        when(assess_two) {
-            in 0..17500 -> assess_two =  0.toFloat()
-            in 17501..300000 -> assess_two = 0.10.toFloat()
-            in 300001..500000 -> assess_two = 0.20.toFloat()
-            in 500001..750000 -> assess_two = 0.25.toFloat()
-            in 750001..1000000 -> assess_two = 0.30.toFloat()
-            in 1000001..2000000 -> assess_two = 0.35.toFloat()
-            in 2000001..5000000 -> assess_two = 0.40.toFloat()
-            in 5000000..10000000 -> assess_two = 0.50.toFloat()
-            else -> assess_two = 0.60.toFloat()
+        assess_two = when(assess_two) {
+            in 0..175000 -> 0.toFloat()
+            in 175001..300000 -> 0.10.toFloat()
+            in 300001..500000 -> 0.20.toFloat()
+            in 500001..750000 -> 0.25.toFloat()
+            in 750001..1000000 -> 0.30.toFloat()
+            in 1000001..2000000 -> 0.35.toFloat()
+            in 2000001..5000000 -> 0.40.toFloat()
+            in 5000000..10000000 -> 0.50.toFloat()
+            else -> 0.60.toFloat()
         }
         val land = value_one.text.toString().toInt().toFloat() * assess_one
-        val building = value_two.text.toString().toInt().toFloat() * assess_two
+        val building = structures.toInt().toFloat() * assess_two
         val tax = (land+building)*0.02.toFloat()
-        currentUserDb.child("Property Assessment").child("Value Computation").child("tax_payable").setValue(tax)
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(id_number)
+        mDatabase.child("tax_payable").setValue(tax)
 
 
         val intent = Intent(this, TransactionId::class.java)

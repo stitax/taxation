@@ -44,7 +44,11 @@ class Application3 : AppCompatActivity() {
 
         btn_logout3.setOnClickListener {
             val arp = intent.getStringExtra("id_number")
-            mDatabase = FirebaseDatabase.getInstance().getReference("Pending").child(arp)
+            mDatabase = FirebaseDatabase.getInstance().getReference("Customer").child(arp)
+            mDatabase.removeValue()
+            mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arp)
+            mDatabase.removeValue()
+            mDatabase = FirebaseDatabase.getInstance().getReference("Structure Characteristics").child(arp)
             mDatabase.removeValue()
             singOut()
         }
@@ -56,34 +60,25 @@ class Application3 : AppCompatActivity() {
         }
         //Data from previous form
         val id_number = intent.getStringExtra("id_number")
+        val structures = intent.getStringExtra("structures")
         //end of data
-        mDatabase = FirebaseDatabase.getInstance().getReference("Pending")
+        mDatabase = FirebaseDatabase.getInstance().getReference("Property Information")
         val currentUserDb = mDatabase.child(id_number)
 
-        currentUserDb.child("Property Assessment").child("Stucture Characteristics").child("Structural Type")
-            .child("Second Floor").setValue(structuretype.text.toString())
-        currentUserDb.child("Property Assessment").child("Stucture Characteristics").child("Bldg Classification")
-            .child("Second Floor").setValue(buildingclasification.text.toString())
-        currentUserDb.child("Property Assessment").child("Stucture Characteristics").child("Bldg Permit")
-            .child("Second Floor").setValue(buildingpermit.text.toString())
-        currentUserDb.child("Property Assessment").child("Stucture Characteristics").child("Bldg Age")
-            .child("Second Floor").setValue(buildingage.text.toString())
-        currentUserDb.child("Property Assessment").child("Stucture Characteristics").child("No of Storeys")
-            .child("Second Floor").setValue(numberofstoreys.text.toString())
-        currentUserDb.child("Property Assessment").child("Stucture Characteristics").child("Date Constructed")
-            .child("Second Floor").setValue(dateconstructed.text.toString())
-        currentUserDb.child("Property Assessment").child("Stucture Characteristics").child("Date Completed")
-            .child("Second Floor").setValue(datecompleted.text.toString())
-        currentUserDb.child("Property Assessment").child("Stucture Characteristics").child("Date Occupied")
-            .child("Second Floor").setValue(dateoccupied.text.toString())
-        currentUserDb.child("Property Assessment").child("Stucture Characteristics").child("Area of Ground Floor")
-            .child("Second Floor").setValue(areaofgroundfloor.text.toString())
-        currentUserDb.child("Property Assessment").child("Stucture Characteristics").child("Total Bldg Area")
-            .child("Second Floor").setValue(totalbuildingarea.text.toString())
+        currentUserDb.child("Structural Type").setValue(structuretype.text.toString())
+        currentUserDb.child("Bldg Classification").setValue(buildingclasification.text.toString())
+        currentUserDb.child("Bldg Permit").setValue(buildingpermit.text.toString())
+        currentUserDb.child("Bldg Age").setValue(buildingage.text.toString())
+        currentUserDb.child("No of Storeys").setValue(numberofstoreys.text.toString())
+        currentUserDb.child("Date Constructed").setValue(dateconstructed.text.toString())
+        currentUserDb.child("Date Completed").setValue(datecompleted.text.toString())
+        currentUserDb.child("Date Occupied").setValue(dateoccupied.text.toString())
+        currentUserDb.child("Area of Ground Floor").setValue(areaofgroundfloor.text.toString())
         //end of data
 
         val intent = Intent(this, Application4::class.java)
         intent.putExtra("id_number", id_number)
+        intent.putExtra("structures", structures)
         startActivity(intent)
         finish()
     }
@@ -152,13 +147,6 @@ class Application3 : AppCompatActivity() {
             valid = false
         } else {
             areaofgroundfloor.error = null
-        }
-        val Totalbuildingarea = totalbuildingarea.text.toString()
-        if (TextUtils.isEmpty(Totalbuildingarea)) {
-            totalbuildingarea.error = "Required."
-            valid = false
-        } else {
-            totalbuildingarea.error = null
         }
 
         return valid

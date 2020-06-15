@@ -1,18 +1,51 @@
 package com.sti.taxation.models
 
 class Model{
-    var Owner: String? = ""
-    var tax_payable: String? = ""
-    var image: String? = ""
+    var arpNumber: String? = null
+    var pin: String? = null
+    var image: String? = null
+    var owner: String? = null
+    var ownerAddress: String? = null
+    var ownerTelNo: String? = null
+    var occupant: String? = null
+    var occupantAddress: String? = null
+    var occupantTelNo: String? = null
+    var location: String? = null
+    var street: String? = null
+    var barangay: String? = null
+    var tax_payable: String? = null
 
     constructor(){
 
     }
 
-    constructor(Owner: String?, tax_payable: String?, image: String?) {
-        this.Owner = Owner
-        this.tax_payable = tax_payable
+    constructor(
+        arpNumber: String?,
+        pin: String?,
+        image: String?,
+        owner: String?,
+        ownerAddress: String?,
+        ownerTelNo: String?,
+        occupant: String?,
+        occupantAddress: String?,
+        occupantTelNo: String?,
+        location: String?,
+        street: String?,
+        barangay: String?,
+        tax_payable: String?
+    ) {
+        this.arpNumber = arpNumber
+        this.pin = pin
         this.image = image
+        this.owner = owner
+        this.ownerAddress = ownerAddress
+        this.ownerTelNo = ownerTelNo
+        this.occupant = occupant
+        this.occupantAddress = occupantAddress
+        this.occupantTelNo = occupantTelNo
+        this.location = location
+        this.street = street
+        this.barangay = barangay
+        this.tax_payable = tax_payable
     }
-
 }

@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_assessor.*
 
 class Assessor : AppCompatActivity() {
@@ -24,6 +25,8 @@ class Assessor : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance().reference
         auth = FirebaseAuth.getInstance()
+
+        Picasso.get().load(R.drawable.logo).into(imageView)
 
         //If Login button is selected..
         //It will authenticate to Firebase either user exist or not.

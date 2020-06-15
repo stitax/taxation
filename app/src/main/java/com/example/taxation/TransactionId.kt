@@ -18,7 +18,7 @@ class TransactionId : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transaction_id)
         val intent = intent
-        txt_transID.setText(": "+intent.getStringExtra("transID"))
+        txt_transID.setText(intent.getStringExtra("transID"))
         tax.setText("Tax Payable : "+intent.getStringExtra("tax")+ " Pesos")
         mDatabase = FirebaseDatabase.getInstance().getReference("Users")
 

@@ -268,29 +268,6 @@
                     android:textSize="25sp"
                     android:hint="Area of Ground Floor - SQM"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Total Bldg Area"
-                    android:textColor="#FFFFFF"
-                    android:textSize="25sp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:paddingLeft="35dp"
-                    android:layout_marginBottom="10dp"/>
-
-                <EditText
-                    android:id="@+id/totalbuildingarea"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/editform"
-                    android:inputType="number"
-                    android:paddingLeft="5dp"
-                    android:textSize="25sp"
-                    android:hint="Total Building Area - SQM"/>
-
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

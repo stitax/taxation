@@ -10,7 +10,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_assessor.*
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_assessor.btn_login
+import kotlinx.android.synthetic.main.activity_assessor.imageView
+import kotlinx.android.synthetic.main.activity_assessor.input_email
+import kotlinx.android.synthetic.main.activity_assessor.input_pass
 
 class admin : AppCompatActivity() {
     val TAG = "Admin"
@@ -22,6 +26,8 @@ class admin : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance().reference
         auth = FirebaseAuth.getInstance()
+
+        Picasso.get().load(R.drawable.logo).into(imageView)
 
         //If Login button is selected..
         //It will authenticate to Firebase either user exist or not.
