@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taxation.models.ViewHolder
 import com.firebase.ui.database.FirebaseRecyclerAdapter
@@ -13,6 +15,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.sti.taxation.models.Model
 import kotlinx.android.synthetic.main.activity_admin_home.*
+import kotlinx.android.synthetic.main.pending_layout.view.*
 
 
 class admin_home : AppCompatActivity() {
@@ -25,8 +28,25 @@ class admin_home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_home)
 
-        btn_pending.setOnClickListener {
-           
+        val filters = resources.getStringArray(R.array.filters)
+
+        val spinner = findViewById<Spinner>(R.id.spinner)
+        if (spinner != null) {
+            val adapter = ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, filters)
+            spinner.adapter = adapter
+
+            spinner.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>,
+                                            view: View, position: Int, id: Long) {
+
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    // write code to perform some action
+                }
+            }
         }
 
         listData.setHasFixedSize(true)
@@ -45,16 +65,27 @@ class admin_home : AppCompatActivity() {
                 return ViewHolder(
                     LayoutInflater.from(parent.context)
                     .inflate(R.layout.pending_layout, parent, false))
+
             }
 
            override fun onBindViewHolder(holder: ViewHolder, position: Int, model: Model) {
+
                 holder.bind(model)
+               holder.itemView.setOnClickListener{
+
+                   val intent = Intent(holder.itemView.context, Display::class.java)
+                    intent.putExtra("Arp number", it.Arp.text)
+                   startActivity(intent)
+               }
+
             }
 
             override fun onDataChanged() {
                 // If there are no chat messages, show a view that invites the user to add a message.
             }
+
         }
+
         listData.adapter = mAdapter
     }
 }
