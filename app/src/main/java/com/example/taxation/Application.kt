@@ -97,7 +97,7 @@ class Application : AppCompatActivity() {
         }
         mDatabase.child("status").setValue("Pending")
         mDatabase.child("arpNumber").setValue(arp)
-        mDatabase.child("pin").setValue(pinnumber.text.toString())
+        mDatabase.child("tin").setValue(pinnumber.text.toString())
         mDatabase.child("owner").setValue(owner.text.toString())
         mDatabase.child("ownerAddress").setValue(address_owner.text.toString())
         mDatabase.child("ownerTelNo").setValue(tellNumber_owner.text.toString())

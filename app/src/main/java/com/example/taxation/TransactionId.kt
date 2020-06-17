@@ -22,6 +22,26 @@ class TransactionId : AppCompatActivity() {
         tax.setText("Tax Payable : "+intent.getStringExtra("tax")+ " Pesos")
         mDatabase = FirebaseDatabase.getInstance().getReference("Users")
 
+        delete.setOnClickListener {
+            val arp: String = intent.getStringExtra("id_number")
+            mDatabase = FirebaseDatabase.getInstance().getReference("Customer").child(arp)
+            mDatabase.removeValue()
+            mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arp)
+            mDatabase.removeValue()
+            mDatabase = FirebaseDatabase.getInstance().getReference("Structure Characteristics").child(arp)
+            mDatabase.removeValue()
+            mDatabase = FirebaseDatabase.getInstance().getReference("Value Computation").child(arp)
+            mDatabase.removeValue()
+            val intent = Intent(this, Application::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+        }
+        done.setOnClickListener {
+            val intent = Intent(this, Application::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+        }
+
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // Get Post object and use the values to update the UI

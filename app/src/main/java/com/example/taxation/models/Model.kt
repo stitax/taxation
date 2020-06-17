@@ -2,7 +2,7 @@ package com.sti.taxation.models
 
 class Model{
     var arpNumber: String? = null
-    var pin: String? = null
+    var tin: String? = null
     var image: String? = null
     var owner: String? = null
     var ownerAddress: String? = null
@@ -22,7 +22,7 @@ class Model{
 
     constructor(
         arpNumber: String?,
-        pin: String?,
+        tin: String?,
         image: String?,
         owner: String?,
         ownerAddress: String?,
@@ -37,7 +37,7 @@ class Model{
         status: String?
     ) {
         this.arpNumber = arpNumber
-        this.pin = pin
+        this.tin = tin
         this.image = image
         this.owner = owner
         this.ownerAddress = ownerAddress

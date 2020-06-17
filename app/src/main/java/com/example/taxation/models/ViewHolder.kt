@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.sti.taxation.models.Model
 import kotlinx.android.synthetic.main.pending_layout.view.*
-import android.content.Intent
 
 class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 

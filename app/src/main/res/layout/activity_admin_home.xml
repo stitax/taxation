@@ -42,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:background="@drawable/edit"
+            android:inputType="number"
             android:textSize="15dp"
             app:iconifiedByDefault="false"
             app:queryHint="Arp Number" />

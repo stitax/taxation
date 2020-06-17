@@ -20,6 +20,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, admin::class.java)
             startActivity(intent)
         }
+        btn_Customer.setOnClickListener{
+            val intent = Intent(this, customer::class.java)
+            startActivity(intent)
+        }
 
 
     }
