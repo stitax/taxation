@@ -71,6 +71,23 @@ class Display : AppCompatActivity() {
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arp)
 
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // Get Post object and use the values to update the UI
+                val data = dataSnapshot.getValue(Display_property::class.java)
+                // ...
+                status_display.text = data?.status
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w("DISPLAY", "loadPost:onCancelled", databaseError.toException())
+                // ...
+            }
+        }
+        mDatabase.addValueEventListener(postListener)
+
         btnApprove.setOnClickListener{
             mDatabase.child("status").setValue("Approved")
             finish()
@@ -86,6 +103,11 @@ class Display : AppCompatActivity() {
             mDatabase.removeValue()
             finish()
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
     fun structureValue(){

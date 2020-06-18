@@ -19,6 +19,7 @@ class Application3 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_application3)
+        auth = FirebaseAuth.getInstance()
 
         btn_application3.setOnClickListener {
             submitForm()
@@ -151,6 +152,7 @@ class Application3 : AppCompatActivity() {
     }
 
     private fun singOut(){
+        auth = FirebaseAuth.getInstance()
         auth.signOut()
         updateUI(null)
     }

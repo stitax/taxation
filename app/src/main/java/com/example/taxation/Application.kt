@@ -26,6 +26,7 @@ class Application : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_application)
+        auth = FirebaseAuth.getInstance()
 
         upload.setOnClickListener {
 
@@ -200,6 +201,7 @@ class Application : AppCompatActivity() {
     }
 
     private fun singOut(){
+        auth = FirebaseAuth.getInstance()
         auth.signOut()
         updateUI(null)
     }

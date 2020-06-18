@@ -89,6 +89,11 @@ class admin_home : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
+
     fun recycler(){
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment")

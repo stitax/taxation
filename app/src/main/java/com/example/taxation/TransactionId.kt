@@ -17,6 +17,7 @@ class TransactionId : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transaction_id)
+        auth = FirebaseAuth.getInstance()
         val intent = intent
         txt_transID.setText(intent.getStringExtra("transID"))
         tax.setText("Tax Payable : "+intent.getStringExtra("tax")+ " Pesos")
@@ -63,6 +64,7 @@ class TransactionId : AppCompatActivity() {
     }
 
     private fun singOut(){
+        auth = FirebaseAuth.getInstance()
         auth.signOut()
         updateUI(null)
     }

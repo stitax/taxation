@@ -22,6 +22,7 @@ class Application4 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_application4)
+        auth = FirebaseAuth.getInstance()
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users")
 
@@ -42,6 +43,7 @@ class Application4 : AppCompatActivity() {
             }
         }
         mDatabase.addValueEventListener(postListener)
+
 
         btn_logout4.setOnClickListener {
             val arp: String = intent.getStringExtra("id_number")
@@ -158,6 +160,7 @@ class Application4 : AppCompatActivity() {
         return valid
     }
     private fun singOut(){
+        auth = FirebaseAuth.getInstance()
         auth.signOut()
         updateUI(null)
     }

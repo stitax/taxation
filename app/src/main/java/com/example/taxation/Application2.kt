@@ -20,6 +20,7 @@ class Application2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_application2)
+        auth = FirebaseAuth.getInstance()
 
         btn_application2.setOnClickListener {
             submitForm()
@@ -43,6 +44,9 @@ class Application2 : AppCompatActivity() {
         mDatabase.addValueEventListener(postListener)
         // [END post_value_event_listener]
         btn_logout2.setOnClickListener {
+            val arp = intent.getStringExtra("id_number")
+            mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arp)
+            mDatabase.removeValue()
             singOut()
         }
 
@@ -392,10 +396,8 @@ class Application2 : AppCompatActivity() {
         return valid
     }
     private fun singOut(){
+        auth = FirebaseAuth.getInstance()
         auth.signOut()
-        val arp = intent.getStringExtra("id_number")
-        mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arp)
-        mDatabase.removeValue()
         updateUI(null)
     }
 
