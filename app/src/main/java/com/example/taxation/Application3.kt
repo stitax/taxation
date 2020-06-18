@@ -44,8 +44,6 @@ class Application3 : AppCompatActivity() {
 
         btn_logout3.setOnClickListener {
             val arp = intent.getStringExtra("id_number")
-            mDatabase = FirebaseDatabase.getInstance().getReference("Customer").child(arp)
-            mDatabase.removeValue()
             mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arp)
             mDatabase.removeValue()
             mDatabase = FirebaseDatabase.getInstance().getReference("Structure Characteristics").child(arp)

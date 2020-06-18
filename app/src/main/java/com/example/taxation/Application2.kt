@@ -394,11 +394,7 @@ class Application2 : AppCompatActivity() {
     private fun singOut(){
         auth.signOut()
         val arp = intent.getStringExtra("id_number")
-        mDatabase = FirebaseDatabase.getInstance().getReference("Customer").child(arp)
-        mDatabase.removeValue()
         mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arp)
-        mDatabase.removeValue()
-        mDatabase = FirebaseDatabase.getInstance().getReference("Structure Characteristics").child(arp)
         mDatabase.removeValue()
         updateUI(null)
     }

@@ -57,10 +57,6 @@ class Application : AppCompatActivity() {
         mDatabase.addValueEventListener(postListener)
         // [END post_value_event_listener]
         btn_logout.setOnClickListener {
-            mDatabase = FirebaseDatabase.getInstance().getReference("Customer").child(arpnumber.text.toString())
-           mDatabase.removeValue()
-            mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arpnumber.text.toString())
-            mDatabase.removeValue()
             singOut()
         }
     }

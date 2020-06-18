@@ -24,13 +24,13 @@ class TransactionId : AppCompatActivity() {
 
         delete.setOnClickListener {
             val arp: String = intent.getStringExtra("id_number")
-            mDatabase = FirebaseDatabase.getInstance().getReference("Customer").child(arp)
-            mDatabase.removeValue()
             mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arp)
             mDatabase.removeValue()
             mDatabase = FirebaseDatabase.getInstance().getReference("Structure Characteristics").child(arp)
             mDatabase.removeValue()
             mDatabase = FirebaseDatabase.getInstance().getReference("Value Computation").child(arp)
+            mDatabase.removeValue()
+            mDatabase = FirebaseDatabase.getInstance().getReference("Property Information").child(arp)
             mDatabase.removeValue()
             val intent = Intent(this, Application::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
