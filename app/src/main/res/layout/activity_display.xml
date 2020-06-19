@@ -348,12 +348,13 @@
                     android:text="Building Age"
                     android:textSize="15dp"
                     android:textColor="#000000"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Number of Stories"
-                    android:textSize="15dp"
-                    android:textColor="#000000"/>
+                    android:text="Number of Storeys"
+                    android:textColor="#000000"
+                    android:textSize="15dp" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -702,30 +703,34 @@
                     android:text="Column : 2nd Floor"
                     android:textSize="15dp"
                     android:textColor="#000000"/>
-                   <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Beans : 1st Floor "
-                    android:textSize="15dp"
-                    android:textColor="#000000"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Beans : 2nd Floor"
-                    android:textSize="15dp"
-                    android:textColor="#000000"/>
-                   <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Trus Farming : 1st Floor "
-                    android:textSize="15dp"
-                    android:textColor="#000000"/>
+                    android:text="Beams : 1st Floor "
+                    android:textColor="#000000"
+                    android:textSize="15dp" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Trus Farming : 2nd Floor"
-                    android:textSize="15dp"
-                    android:textColor="#000000"/>
+                    android:text="Beams : 2nd Floor"
+                    android:textColor="#000000"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Truss Framing : 1st Floor "
+                    android:textColor="#000000"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Truss Framing : 2nd Floor"
+                    android:textColor="#000000"
+                    android:textSize="15dp" />
                    <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -118,15 +118,16 @@
             android:paddingLeft="5dp"
             android:textSize="25sp"
             android:hint="2nd Floor"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Beans"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:layout_marginBottom="10dp"
             android:paddingLeft="35dp"
-            android:layout_marginBottom="10dp"/>
+            android:text="Beams"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
 
         <EditText
             android:id="@+id/bean1"
@@ -152,15 +153,16 @@
             android:paddingLeft="5dp"
             android:textSize="25sp"
             android:hint="2nd Floor"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Trus Framing"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:layout_marginBottom="10dp"
             android:paddingLeft="35dp"
-            android:layout_marginBottom="10dp"/>
+            android:text="Truss Framing"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
 
         <EditText
             android:id="@+id/trus1"
@@ -220,15 +222,16 @@
             android:paddingLeft="5dp"
             android:textSize="25sp"
             android:hint="2nd Floor"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Exterior"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:layout_marginBottom="10dp"
             android:paddingLeft="35dp"
-            android:layout_marginBottom="10dp"/>
+            android:text="Exterior Wall"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
 
         <EditText
             android:id="@+id/exterior1"
