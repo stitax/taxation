@@ -138,7 +138,10 @@ class Book : AppCompatActivity() {
                     calendar.add(Calendar.DATE, day)
                     sched1.text = dateFormat.format(calendar.time)
                 }else{
-                    sched1.text = "Fully Book"
+                    sched1.text = "FullyBooked"
+                    sched1.setBackgroundResource(R.drawable.delete)
+                    sched1.isEnabled = false
+
                 }
 
             }
@@ -158,7 +161,10 @@ class Book : AppCompatActivity() {
                     sched2.text = dateFormat.format(calendar.time)
 
                 }else{
-                    sched2.text = "Fully Book"
+                    sched2.text = "FullyBooked"
+                    sched2.setBackgroundResource(R.drawable.delete)
+                    sched2.isEnabled = false
+
                 }
 
             }
@@ -178,7 +184,9 @@ class Book : AppCompatActivity() {
                     sched3.text = dateFormat.format(calendar.time)
 
                 }else{
-                    sched3.text = "Fully Book"
+                    sched3.text = "FullyBooked"
+                    sched3.isEnabled = false
+                    sched3.setBackgroundResource(R.drawable.delete)
                 }
 
             }
@@ -198,7 +206,10 @@ class Book : AppCompatActivity() {
                     sched4.text = dateFormat.format(calendar.time)
 
                 }else{
-                    sched4.text = "Fully Book"
+                    sched4.text = "FullyBooked"
+                    sched4.setBackgroundResource(R.drawable.delete)
+                    sched4.isEnabled = false
+
                 }
 
             }
@@ -218,7 +229,9 @@ class Book : AppCompatActivity() {
                     sched5.text = dateFormat.format(calendar.time)
 
                 }else{
-                    sched5.text = "Fully Book"
+                    sched5.text = "FullyBooked"
+                    sched5.setBackgroundResource(R.drawable.delete)
+                    sched5.isEnabled = false
                 }
 
             }
