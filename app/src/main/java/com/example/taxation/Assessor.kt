@@ -90,7 +90,7 @@ class Assessor : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
-            val intent = Intent(this, Application::class.java)
+            val intent = Intent(this, Assessor_Home::class.java)
             startActivity(intent)
             finish()
         }

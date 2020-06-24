@@ -27,7 +27,7 @@
                 android:id="@+id/btn_logout4"
                 android:textColor="@color/blackColor"/>
             <Space
-                android:layout_width="150dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"/>
 
             <TextView

@@ -66,6 +66,8 @@ class Application4 : AppCompatActivity() {
             return
         }
         //Data from previous form
+        val day = intent.getStringExtra("day")
+        val AppointID = intent.getStringExtra("AppointmentID")
         val structures = intent.getStringExtra("structures")
         val id_number = intent.getStringExtra("id_number")
         //end of data
@@ -112,6 +114,9 @@ class Application4 : AppCompatActivity() {
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(id_number)
         mDatabase.child("tax_payable").setValue(tax)
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("Appointment").child(day).child(AppointID)
+        mDatabase.removeValue()
 
 
         val intent = Intent(this, TransactionId::class.java)

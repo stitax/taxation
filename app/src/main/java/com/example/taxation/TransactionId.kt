@@ -38,7 +38,7 @@ class TransactionId : AppCompatActivity() {
             startActivity(intent)
         }
         done.setOnClickListener {
-            val intent = Intent(this, Application::class.java)
+            val intent = Intent(this, Assessor_Home::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }

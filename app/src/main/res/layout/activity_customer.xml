@@ -27,6 +27,16 @@
             android:textColor="#000000"
             android:paddingLeft="20dp"
             android:textSize="20dp"/>
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Book a Schedule"
+            android:background="@drawable/edit"
+            android:id="@+id/book"/>
 
     </LinearLayout>
     <ImageView
@@ -38,10 +48,10 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="@drawable/edit"
         android:inputType="number"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_margin="20dp"
         android:paddingLeft="20dp"
         android:hint="ARP Number"

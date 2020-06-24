@@ -58,6 +58,8 @@ class Application3 : AppCompatActivity() {
             return
         }
         //Data from previous form
+        val day = intent.getStringExtra("day")
+        val AppointID = intent.getStringExtra("AppointmentID")
         val id_number = intent.getStringExtra("id_number")
         val structures = intent.getStringExtra("structures")
         //end of data
@@ -77,6 +79,8 @@ class Application3 : AppCompatActivity() {
 
         val intent = Intent(this, Application4::class.java)
         intent.putExtra("id_number", id_number)
+        intent.putExtra("day",day)
+        intent.putExtra("AppointmentID", AppointID)
         intent.putExtra("structures", structures)
         startActivity(intent)
         finish()

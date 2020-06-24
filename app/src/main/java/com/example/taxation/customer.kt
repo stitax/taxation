@@ -19,6 +19,11 @@ class customer : AppCompatActivity() {
 
         val mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment")
 
+        book.setOnClickListener {
+            val intent = Intent(this, Book::class.java)
+            startActivity(intent)
+        }
+
         back_customer.setOnClickListener { finish() }
 
         Picasso.get().load(R.drawable.logo).into(imgCustomer)

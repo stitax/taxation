@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Book">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <Button
+                android:id="@+id/back_book"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:background="#02FFFFFF"
+                android:layout_marginLeft="15dp"
+                android:drawableLeft="?attr/actionModeCloseDrawable" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hi User!"
+                android:layout_gravity="center"
+                android:textColor="#000000"
+                android:paddingLeft="20dp"
+                android:textSize="20dp"/>
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="20dp"
+                android:text="Tue, 20/10/2020"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:id="@+id/date"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit"
+            android:layout_margin="10dp"
+            android:text="SCHEDULES"
+            android:textColor="#000000"
+            android:id="@+id/book_result"
+            android:gravity="center"
+            android:textSize="40dp"/>
+
+        <TextView
+            android:id="@+id/availability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Available Only on Weekdays - Try Again On Monday"
+            android:background="@drawable/edit"
+            android:textSize="30dp"
+            android:textColor="#000000"
+            android:padding="20dp"
+            android:layout_margin="10dp"/>
+        <LinearLayout
+            android:id="@+id/appointment"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit"
+            android:padding="20dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:text="Transaction ID"
+                    android:padding="15dp"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:padding="15dp"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Adress"
+                    android:padding="15dp"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Schedule"
+                    android:padding="15dp"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:textSize="15dp"
+                    android:background="@drawable/edit"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/transactionId"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:textSize="15dp"
+                    android:background="@drawable/edit"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/appointmentName"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:textSize="15dp"
+                    android:background="@drawable/edit"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/appointmentAddress"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:textSize="15dp"
+                    android:background="@drawable/edit"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/appointment_schedule"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/schedules"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit"
+            android:padding="20dp"
+            android:weightSum="2"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Monday"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="10dp"
+                    android:padding="20dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tuesday"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="10dp"
+                    android:padding="20dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Wednesday"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:padding="20dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Thursday"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:padding="20dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Friday"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="10dp"
+                    android:padding="20dp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="20/11/2020"
+                    android:textSize="15dp"
+                    android:background="@drawable/edit"
+                    android:textColor="#000000"
+                    android:id="@+id/sched1"
+                    android:layout_marginBottom="10dp"
+                    android:padding="20dp"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="20/11/2020"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="15dp"
+                    android:background="@drawable/edit"
+                    android:textColor="#000000"
+                    android:id="@+id/sched2"
+                    android:padding="20dp"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="20/11/2020"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="15dp"
+                    android:background="@drawable/edit"
+                    android:textColor="#000000"
+                    android:id="@+id/sched3"
+                    android:padding="20dp"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="20/11/2020"
+                    android:textSize="15dp"
+                    android:background="@drawable/edit"
+                    android:textColor="#000000"
+                    android:id="@+id/sched4"
+                    android:padding="20dp"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="20/11/2020"
+                    android:textSize="15dp"
+                    android:background="@drawable/edit"
+                    android:textColor="#000000"
+                    android:id="@+id/sched5"
+                    android:padding="20dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit"
+            android:padding="20dp"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:padding="15dp"
+                android:textSize="20dp"
+                android:background="@drawable/editform"
+                android:textColor="#000000"
+                android:inputType="text"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/name"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                android:padding="15dp"
+                android:inputType="text"
+                android:textSize="20dp"
+                android:background="@drawable/editform"
+                android:textColor="#000000"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/address"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:id="@+id/form_submit"
+                android:layout_gravity="right"
+                android:background="@color/colorAccent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

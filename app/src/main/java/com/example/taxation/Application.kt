@@ -80,6 +80,8 @@ class Application : AppCompatActivity() {
         if (!validateForm()) {
             return
         }
+        val day = intent.getStringExtra("day")
+        val AppointID = intent.getStringExtra("AppointmentID")
         val arp = arpnumber.text.toString()
         mDatabase = FirebaseDatabase.getInstance().getReference("Property Assessment").child(arp)
 
@@ -107,6 +109,8 @@ class Application : AppCompatActivity() {
 
         val intent = Intent(this, Application2::class.java)
         intent.putExtra("id_number", arp)
+        intent.putExtra("day",day)
+        intent.putExtra("AppointmentID", AppointID)
         startActivity(intent)
         finish()
     }

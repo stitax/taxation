@@ -5,4 +5,11 @@
         <item>Approve</item>
         <item>Pending</item>
     </string-array>
+    <string-array name="assess">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+    </string-array>
 </resources>
