@@ -133,9 +133,10 @@ class Book : AppCompatActivity() {
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
+                calendar.add(Calendar.DATE, day)
+
                 val count = dataSnapshot.childrenCount
                 if(count < 4){
-                    calendar.add(Calendar.DATE, day)
                     sched1.text = dateFormat.format(calendar.time)
                 }else{
                     sched1.text = "FullyBooked"
@@ -154,10 +155,9 @@ class Book : AppCompatActivity() {
         }
         val postListener2 = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-
+                calendar.add(Calendar.DATE, 1)
                 val count = dataSnapshot.childrenCount
                 if(count < 4){
-                    calendar.add(Calendar.DATE, 1)
                     sched2.text = dateFormat.format(calendar.time)
 
                 }else{
@@ -177,10 +177,9 @@ class Book : AppCompatActivity() {
         }
         val postListener3 = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-
+                calendar.add(Calendar.DATE, 1)
                 val count = dataSnapshot.childrenCount
                 if(count < 4){
-                    calendar.add(Calendar.DATE, 1)
                     sched3.text = dateFormat.format(calendar.time)
 
                 }else{
@@ -199,10 +198,10 @@ class Book : AppCompatActivity() {
         }
         val postListener4 = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
+                calendar.add(Calendar.DATE, 1)
 
                 val count = dataSnapshot.childrenCount
                 if(count < 4){
-                    calendar.add(Calendar.DATE, 1)
                     sched4.text = dateFormat.format(calendar.time)
 
                 }else{
@@ -222,10 +221,10 @@ class Book : AppCompatActivity() {
         }
         val postListener5 = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
+                calendar.add(Calendar.DATE, 1)
 
                 val count = dataSnapshot.childrenCount
                 if(count < 4){
-                    calendar.add(Calendar.DATE, 1)
                     sched5.text = dateFormat.format(calendar.time)
 
                 }else{
