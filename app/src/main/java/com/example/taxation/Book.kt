@@ -1,10 +1,12 @@
 package com.example.taxation
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.View
+import android.view.View.OnTouchListener
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -13,12 +15,22 @@ import kotlinx.android.synthetic.main.activity_book.*
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 class Book : AppCompatActivity() {
 
     @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book)
+        user_agreement.movementMethod = ScrollingMovementMethod()
+        scrollview1.setOnTouchListener(OnTouchListener { v, event ->
+            user_agreement.getParent().requestDisallowInterceptTouchEvent(false)
+            false
+        })
+        user_agreement.setOnTouchListener({ v, event ->
+            user_agreement.getParent().requestDisallowInterceptTouchEvent(true)
+            false
+        })
 
         val mDatabase = FirebaseDatabase.getInstance().getReference("Appointment")
         var today = ""
@@ -27,6 +39,8 @@ class Book : AppCompatActivity() {
 
         val calendar = Calendar.getInstance()
         calendar.time = Date()
+        val current = SimpleDateFormat("EEE, dd/MMMM/yyyy")
+        date.text = current.format(calendar.time)
 
         val formatDay = SimpleDateFormat("EEE")
         val day = formatDay.format(calendar.time)
@@ -84,10 +98,10 @@ class Book : AppCompatActivity() {
 
         form_submit.setOnClickListener {
 
-            if (name.text.isNotEmpty() and address.text.isNotEmpty()) {
+            if (name.text.isNotEmpty() and address.text.isNotEmpty() and book_arpNumber.text.isNotEmpty()) {
 
-                val id = mDatabase.child(today).push()
-                id.child("TransactionId").setValue(id.key.toString())
+                val id = mDatabase.child(today).child(book_arpNumber.text.toString())
+                id.child("Arp_Number").setValue(book_arpNumber.text.toString())
                 id.child("Name").setValue(name.text.toString())
                 id.child("Address").setValue(address.text.toString())
                 id.child("Schedule").setValue(book_result.text.toString())
@@ -95,7 +109,7 @@ class Book : AppCompatActivity() {
                 form.visibility = View.GONE
                 appointment.visibility = View.VISIBLE
 
-                transactionId.text = id.key.toString()
+                transactionId.text = book_arpNumber.text
                 appointmentName.text = name.text
                 appointmentAddress.text = address.text
                 appointment_schedule.text = book_result.text
@@ -105,14 +119,10 @@ class Book : AppCompatActivity() {
             }else{
                 name.setError("Please Enter Name")
                 address.setError("Please Enter Address")
+                book_arpNumber.setError("Please Enter Your Arp Number")
             }
 
-
         }
-
-
-
-
 
     }
 
@@ -124,11 +134,9 @@ class Book : AppCompatActivity() {
 
 
         val dateFormat = SimpleDateFormat("dd/MMMM/yyyy")
-        val formatDay = SimpleDateFormat("EEE")
 
         val calendar = Calendar.getInstance()
         calendar.time = Date()
-        date.text = formatDay.format(calendar.time) + ", " + dateFormat.format(calendar.time)
 
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -251,4 +259,8 @@ class Book : AppCompatActivity() {
         availability.visibility = View.GONE
 
     }
+
+
+
+
 }

@@ -1,20 +1,27 @@
 package com.example.taxation
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.TextUtils
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 import com.sti.taxation.models.User
 import kotlinx.android.synthetic.main.activity_application.*
+import kotlinx.android.synthetic.main.activity_main.*
+import java.util.jar.Manifest
 
 
 @Suppress("DEPRECATION")
@@ -28,11 +35,27 @@ class Application : AppCompatActivity() {
         setContentView(R.layout.activity_application)
         auth = FirebaseAuth.getInstance()
 
-        upload.setOnClickListener {
+        arpnumber.text = intent.getStringExtra("AppointmentID")
+        owner.text = intent.getStringExtra("Name")
+        address_owner.text = intent.getStringExtra("Address")
 
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent,0)
+        upload.setOnClickListener {
+            if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
+                if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) ==
+                    PackageManager.PERMISSION_DENIED){
+                    val permissions = arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE);
+                    requestPermissions(permissions, PERMISION_CODE);
+
+                }
+                else{
+                    pickImageFromGallery();
+
+                }
+            }
+            else{
+                pickImageFromGallery();
+
+            }
         }
 
         btn_next.setOnClickListener {
@@ -61,17 +84,47 @@ class Application : AppCompatActivity() {
             singOut()
         }
     }
+    companion object{
+        private val IMAGE_PICK_CODE = 1000;
+        private val PERMISION_CODE = 1001;
+    }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when(requestCode){
+            PERMISION_CODE ->{
+                if(grantResults.size>0 && grantResults[0]==
+                    PackageManager.PERMISSION_GRANTED){
+                    pickImageFromGallery()
+                }
+                else{
+                    Toast.makeText(this,"Permission denied",Toast.LENGTH_SHORT).show()
+                }
+            }
+
+        }
+
+    }
+
+
+    private fun pickImageFromGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, IMAGE_PICK_CODE)
+
+    }
     var selectedPhotoUri: Uri? = null
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
-            selectedPhotoUri = data.data
+        if (resultCode == Activity.RESULT_OK && requestCode== IMAGE_PICK_CODE){
+            selectedPhotoUri = data?.data
 
-            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
-            val bitmapDrawable = BitmapDrawable(bitmap)
-            upload.setBackgroundDrawable(bitmapDrawable)
+            Picasso.get().load(data?.data).fit().into(upload)
         }
 
     }
@@ -100,9 +153,6 @@ class Application : AppCompatActivity() {
         mDatabase.child("owner").setValue(owner.text.toString())
         mDatabase.child("ownerAddress").setValue(address_owner.text.toString())
         mDatabase.child("ownerTelNo").setValue(tellNumber_owner.text.toString())
-        mDatabase.child("occupant").setValue(occupant.text.toString())
-        mDatabase.child("occupantAddress").setValue(address_occupant.text.toString())
-        mDatabase.child("occupantTelNo").setValue(tellNumber_occupant.text.toString())
         mDatabase.child("location").setValue(location.text.toString())
         mDatabase.child("street").setValue(street.text.toString())
         mDatabase.child("barangay").setValue(brgy.text.toString())
@@ -115,8 +165,14 @@ class Application : AppCompatActivity() {
         finish()
     }
 
+    @SuppressLint("WrongConstant")
     private fun validateForm(): Boolean {
         var valid = true
+
+        if (selectedPhotoUri == null){
+            Toast.makeText(this, "Please Upload a Photo",1)
+            valid = false
+        }
 
         val arpNumber = arpnumber.text.toString()
         if (TextUtils.isEmpty(arpNumber)) {
@@ -158,27 +214,6 @@ class Application : AppCompatActivity() {
             tellNumber_owner.error = null
         }
 
-        val Occupant = occupant.text.toString()
-        if (TextUtils.isEmpty(Occupant)) {
-            occupant.error = "Required."
-            valid = false
-        } else {
-            occupant.error = null
-        }
-        val addi_Occupant = address_occupant.text.toString()
-        if (TextUtils.isEmpty(addi_Occupant)) {
-            address_occupant.error = "Required."
-            valid = false
-        } else {
-            address_occupant.error = null
-        }
-        val tellNumberOccupant = tellNumber_occupant.text.toString()
-        if (TextUtils.isEmpty(tellNumberOccupant)) {
-            tellNumber_occupant.error = "Required."
-            valid = false
-        } else {
-            tellNumber_occupant.error = null
-        }
         val Location = location.text.toString()
         if (TextUtils.isEmpty(Location)) {
             location.error = "Required."
@@ -219,5 +254,7 @@ class Application : AppCompatActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
+
     }
+
 }

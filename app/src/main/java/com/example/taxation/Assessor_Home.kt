@@ -99,6 +99,8 @@ class Assessor_Home : AppCompatActivity() {
                 holder.itemView.assess.setOnClickListener {
                     val intent = Intent(holder.itemView.context, Application::class.java)
                     intent.putExtra("AppointmentID", holder.itemView.row_id.text.toString())
+                    intent.putExtra("Name", holder.itemView.row_name.text.toString())
+                    intent.putExtra("Address", holder.itemView.row_address.text.toString())
                     intent.putExtra("day",day)
                     startActivity(intent)
                 }

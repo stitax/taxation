@@ -120,8 +120,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_foundation1.text = data?.first_Floor
-                display_foundation2.text = data?.secondFloor
+                display_foundation1.text = "PHP "+ data?.first_Floor
+                display_foundation2.text = "PHP "+ data?.secondFloor
 
             }
 
@@ -143,8 +143,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_column1.text = data?.first_Floor.toString()
-                display_column2.text = data?.secondFloor.toString()
+                display_column1.text = "PHP "+ data?.first_Floor.toString()
+                display_column2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -166,8 +166,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_beans1.text = data?.first_Floor.toString()
-                display_beans2.text = data?.secondFloor.toString()
+                display_beans1.text = "PHP "+ data?.first_Floor.toString()
+                display_beans2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -189,8 +189,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_trus1.text = data?.first_Floor.toString()
-                display_trus2.text = data?.secondFloor.toString()
+                display_trus1.text = "PHP "+ data?.first_Floor.toString()
+                display_trus2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -213,8 +213,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_roof1.text = data?.first_Floor.toString()
-                display_roof2.text = data?.secondFloor.toString()
+                display_roof1.text ="PHP "+  data?.first_Floor.toString()
+                display_roof2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -237,8 +237,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_exterior1.text = data?.first_Floor.toString()
-                display_exterior2.text = data?.secondFloor.toString()
+                display_exterior1.text = "PHP "+ data?.first_Floor.toString()
+                display_exterior2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -260,8 +260,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_flooring1.text = data?.first_Floor.toString()
-                display_flooring2.text = data?.secondFloor.toString()
+                display_flooring1.text = "PHP "+ data?.first_Floor.toString()
+                display_flooring2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -284,8 +284,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_door1.text = data?.first_Floor.toString()
-                display_door2.text = data?.secondFloor.toString()
+                display_door1.text = "PHP "+ data?.first_Floor.toString()
+                display_door2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -308,8 +308,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_ceiling1.text = data?.first_Floor.toString()
-                display_ceiling2.text = data?.secondFloor.toString()
+                display_ceiling1.text = "PHP "+ data?.first_Floor.toString()
+                display_ceiling2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -332,8 +332,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_windows1.text = data?.first_Floor.toString()
-                display_windows2.text = data?.secondFloor.toString()
+                display_windows1.text = "PHP "+ data?.first_Floor.toString()
+                display_windows2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -356,8 +356,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_stairs1.text = data?.first_Floor.toString()
-                display_stairs2.text = data?.secondFloor.toString()
+                display_stairs1.text = "PHP "+ data?.first_Floor.toString()
+                display_stairs2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -380,8 +380,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_partition1.text = data?.first_Floor.toString()
-                display_partition2.text = data?.secondFloor.toString()
+                display_partition1.text = "PHP "+ data?.first_Floor.toString()
+                display_partition2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -404,8 +404,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_wall_finish1.text = data?.first_Floor.toString()
-                display_wall_finish2.text = data?.secondFloor.toString()
+                display_wall_finish1.text = "PHP "+ data?.first_Floor.toString()
+                display_wall_finish2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -428,8 +428,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_electrical1.text = data?.first_Floor.toString()
-                display_electrical2.text = data?.secondFloor.toString()
+                display_electrical1.text ="PHP "+  data?.first_Floor.toString()
+                display_electrical2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -452,8 +452,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_toilet1.text = data?.first_Floor.toString()
-                display_toilet2.text = data?.secondFloor.toString()
+                display_toilet1.text = "PHP "+ data?.first_Floor.toString()
+                display_toilet2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -476,8 +476,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_plumbing1.text = data?.first_Floor.toString()
-                display_plumbing2.text = data?.secondFloor.toString()
+                display_plumbing1.text = "PHP "+ data?.first_Floor.toString()
+                display_plumbing2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -500,8 +500,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Structure::class.java)
                 // ...
-                display_fixture1.text = data?.first_Floor.toString()
-                display_fixture2.text = data?.secondFloor.toString()
+                display_fixture1.text = "PHP "+ data?.first_Floor.toString()
+                display_fixture2.text = "PHP "+ data?.secondFloor.toString()
 
             }
 
@@ -527,15 +527,12 @@ class Display : AppCompatActivity() {
                 Picasso.get().load(data?.image).fit().into(img_display)
                 display_tin.text = data?.tin
                 display_owner.text = data?.owner
-                display_owner_address.text = data?.ownerAddress
                 display_owner_tel.text = data?.ownerTelNo
-                display_admin.text = data?.occupant
-                display_admin_address.text = data?.occupantAddress
-                display_admin_tel.text = data?.occupantTelNo
-                display_bldg_location.text = data?.location
+                display_owner_address.text = data?.ownerAddress
                 display_street.text = data?.street
+                display_bldg_location.text = data?.location
                 display_barangay.text = data?.barangay
-                tax_payable.text = data?.tax_payable.toString()
+                tax_payable.text = "PHP "+ data?.tax_payable.toString()
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
@@ -560,7 +557,6 @@ class Display : AppCompatActivity() {
                 classification.text = data?.Bldg_Classification
                 permit.text = data?.Bldg_Permit
                 age.text = data?.Bldg_Age
-                stories.text = data?.NoOfStoreys
                 date_occupied.text = data?.Date_Occupied
                 date_completed.text = data?.Date_Completed
                 date_constructed.text = data?.Date_Constructed
@@ -587,8 +583,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Assess::class.java)
                 // ...
-                assess_building.text = data?.Building
-                assess_land.text = data?.Land
+                assess_building.text ="PHP "+  data?.Building
+                assess_land.text = "PHP "+ data?.Land
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
@@ -602,8 +598,8 @@ class Display : AppCompatActivity() {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue(Display_Assess::class.java)
                 // ...
-                market_building.text = data?.Building
-                market_land.text = data?.Land
+                market_building.text = "PHP "+ data?.Building
+                market_land.text ="PHP "+  data?.Land
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

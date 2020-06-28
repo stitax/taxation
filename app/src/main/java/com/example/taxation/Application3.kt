@@ -5,6 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -20,8 +25,90 @@ class Application3 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_application3)
         auth = FirebaseAuth.getInstance()
+        var structure = "Building"
+        var building = "Industrial"
+        val structure_type = resources.getStringArray(R.array.structure_type)
+        val spinner = findViewById<Spinner>(R.id.structuretype)
+        if (spinner != null) {
+            val adapter = ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, structure_type)
+            spinner.adapter = adapter
+
+            spinner.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View, position: Int, id: Long
+                ) {
+                    when (position) {
+                        0 -> {
+                            // Notify the selected item text
+
+                            structure = "Building"
+                        }
+                        1 -> {
+                            // Notify the selected item text
+                            structure = "House"
+                        }
+                    }
+
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    // write code to perform some action
+                    structure = "Building"
+                }
+            }
+        }
+        val building1 = resources.getStringArray(R.array.building_classification)
+        val spinner1 = findViewById<Spinner>(R.id.buildingclasification)
+        if (spinner1 != null) {
+            val adapter = ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, building1)
+            spinner1.adapter = adapter
+
+            spinner1.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View, position: Int, id: Long
+                ) {
+
+                    when (position) {
+                        0 -> {
+                            // Notify the selected item text
+                            building = "Industrial"
+                        }
+
+                        1 -> {
+                            // Notify the selected item text
+                            building = "Commercial"
+                        }
+
+                        2 -> {
+                            // Notify the selected item text
+                            building = "Residential"
+                        }
+
+                    }
+
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    // write code to perform some action
+                    building = "Industrial"
+
+                }
+            }
+        }
 
         btn_application3.setOnClickListener {
+            val arp = intent.getStringExtra("id_number")
+            mDatabase = FirebaseDatabase.getInstance().getReference("Property Information").child(arp)
+            mDatabase.child("Structural_Type").setValue(structure)
+            mDatabase.child("Bldg_Classification").setValue(building)
+
+
             submitForm()
         }
         mDatabase = FirebaseDatabase.getInstance().getReference("Users")
@@ -66,11 +153,8 @@ class Application3 : AppCompatActivity() {
         mDatabase = FirebaseDatabase.getInstance().getReference("Property Information")
         val currentUserDb = mDatabase.child(id_number)
 
-        currentUserDb.child("Structural_Type").setValue(structuretype.text.toString())
-        currentUserDb.child("Bldg_Classification").setValue(buildingclasification.text.toString())
         currentUserDb.child("Bldg_Permit").setValue(buildingpermit.text.toString())
         currentUserDb.child("Bldg_Age").setValue(buildingage.text.toString())
-        currentUserDb.child("NoOfStoreys").setValue(numberofstoreys.text.toString())
         currentUserDb.child("Date_Constructed").setValue(dateconstructed.text.toString())
         currentUserDb.child("Date_Completed").setValue(datecompleted.text.toString())
         currentUserDb.child("Date_Occupied").setValue(dateoccupied.text.toString())
@@ -88,20 +172,6 @@ class Application3 : AppCompatActivity() {
     private fun validateForm(): Boolean {
         var valid = true
 
-        val Structuretype = structuretype.text.toString()
-        if (TextUtils.isEmpty(Structuretype)) {
-            structuretype.error = "Required."
-            valid = false
-        } else {
-            structuretype.error = null
-        }
-        val Buildingclasification = buildingclasification.text.toString()
-        if (TextUtils.isEmpty(Buildingclasification)) {
-            buildingclasification.error = "Required."
-            valid = false
-        } else {
-            buildingclasification.error = null
-        }
         val Buildingpermit = buildingpermit.text.toString()
         if (TextUtils.isEmpty(Buildingpermit)) {
             buildingpermit.error = "Required."
@@ -116,13 +186,7 @@ class Application3 : AppCompatActivity() {
         } else {
             buildingage.error = null
         }
-        val Numberofstoreys = numberofstoreys.text.toString()
-        if (TextUtils.isEmpty(Numberofstoreys)) {
-            numberofstoreys.error = "Required."
-            valid = false
-        } else {
-            numberofstoreys.error = null
-        }
+
         val Dateconstructed = dateconstructed.text.toString()
         if (TextUtils.isEmpty(Dateconstructed)) {
             dateconstructed.error = "Required."

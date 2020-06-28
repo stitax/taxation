@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.sti.taxation.models.User
 import kotlinx.android.synthetic.main.activity_application4.*
+import java.text.DecimalFormat
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class Application4 : AppCompatActivity() {
@@ -18,11 +19,14 @@ class Application4 : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_application4)
         auth = FirebaseAuth.getInstance()
+
+        market_one.addTextChangedListener(NumberTextWatcherForThousand(market_one))
+        market_two.addTextChangedListener(NumberTextWatcherForThousand(market_two))
+        value_one.addTextChangedListener(NumberTextWatcherForThousand(value_one))
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users")
 
@@ -83,7 +87,7 @@ class Application4 : AppCompatActivity() {
         currentUserDb.child("Assessed Value").child("Building")
             .setValue(structures)
 
-        var assess_one = value_one.text.toString().toInt().toFloat()
+        var assess_one = value_one.text.toString().replace(",","").toInt().toFloat()
         var assess_two = structures.toInt().toFloat()
 
         assess_one = when(assess_one) {
@@ -108,7 +112,7 @@ class Application4 : AppCompatActivity() {
             in 5000000..10000000 -> 0.50.toFloat()
             else -> 0.60.toFloat()
         }
-        val land = value_one.text.toString().toInt().toFloat() * assess_one
+        val land = value_one.text.toString().replace(",","").toInt().toFloat() * assess_one
         val building = structures.toInt().toFloat() * assess_two
         val tax = (land+building)*0.02.toFloat()
 
@@ -153,13 +157,6 @@ class Application4 : AppCompatActivity() {
             valid = false
         } else {
             value_one.error = null
-        }
-        val valueTwo = value_two.text.toString()
-        if (TextUtils.isEmpty(valueTwo)) {
-            value_two.error = "Required."
-            valid = false
-        } else {
-            value_two.error = null
         }
 
         return valid

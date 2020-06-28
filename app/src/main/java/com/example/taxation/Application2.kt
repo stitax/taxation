@@ -1,16 +1,17 @@
 package com.example.taxation
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.sti.taxation.models.User
-import kotlinx.android.synthetic.main.activity_application.*
 import kotlinx.android.synthetic.main.activity_application2.*
+import java.text.DecimalFormat
+
 
 class Application2 : AppCompatActivity() {
 
@@ -21,6 +22,41 @@ class Application2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_application2)
         auth = FirebaseAuth.getInstance()
+
+        foundation1.addTextChangedListener(NumberTextWatcherForThousand(foundation1))
+        foundation2.addTextChangedListener(NumberTextWatcherForThousand(foundation2))
+        column1.addTextChangedListener(NumberTextWatcherForThousand(column1))
+        column2.addTextChangedListener(NumberTextWatcherForThousand(column2))
+        bean1.addTextChangedListener(NumberTextWatcherForThousand(bean1))
+        bean2.addTextChangedListener(NumberTextWatcherForThousand(bean2))
+        trus1.addTextChangedListener(NumberTextWatcherForThousand(trus1))
+        trus2.addTextChangedListener(NumberTextWatcherForThousand(trus2))
+        roof1.addTextChangedListener(NumberTextWatcherForThousand(roof1))
+        roof2.addTextChangedListener(NumberTextWatcherForThousand(roof2))
+        exterior1.addTextChangedListener(NumberTextWatcherForThousand(exterior1))
+        exterior2.addTextChangedListener(NumberTextWatcherForThousand(exterior2))
+        flooring1.addTextChangedListener(NumberTextWatcherForThousand(flooring1))
+        flooring2.addTextChangedListener(NumberTextWatcherForThousand(flooring2))
+                door1.addTextChangedListener(NumberTextWatcherForThousand(door1))
+        door2.addTextChangedListener(NumberTextWatcherForThousand(door2))
+        ceiling1.addTextChangedListener(NumberTextWatcherForThousand(ceiling1))
+                ceiling2.addTextChangedListener(NumberTextWatcherForThousand(ceiling2))
+        window1.addTextChangedListener(NumberTextWatcherForThousand(window1))
+        window2.addTextChangedListener(NumberTextWatcherForThousand(window2))
+                stairs1.addTextChangedListener(NumberTextWatcherForThousand(stairs1))
+        stairs2.addTextChangedListener(NumberTextWatcherForThousand(stairs2))
+        partition1.addTextChangedListener(NumberTextWatcherForThousand(partition1))
+                partition2.addTextChangedListener(NumberTextWatcherForThousand(partition2))
+        wallfinish1.addTextChangedListener(NumberTextWatcherForThousand(wallfinish1))
+        wallfinish2.addTextChangedListener(NumberTextWatcherForThousand(wallfinish2))
+                electrical1.addTextChangedListener(NumberTextWatcherForThousand(electrical1))
+        electrical2.addTextChangedListener(NumberTextWatcherForThousand(electrical2))
+        toiletbath1.addTextChangedListener(NumberTextWatcherForThousand(toiletbath1))
+                toiletbath2.addTextChangedListener(NumberTextWatcherForThousand(toiletbath2))
+        plumbingsewer1.addTextChangedListener(NumberTextWatcherForThousand(plumbingsewer1))
+        plumbingsewer2.addTextChangedListener(NumberTextWatcherForThousand(plumbingsewer2))
+                fixtures1.addTextChangedListener(NumberTextWatcherForThousand(fixtures1))
+        fixtures2.addTextChangedListener(NumberTextWatcherForThousand(fixtures2))
 
         btn_application2.setOnClickListener {
             submitForm()
@@ -64,6 +100,8 @@ class Application2 : AppCompatActivity() {
         //end of data
         mDatabase = FirebaseDatabase.getInstance().getReference("Structure Characteristics")
         val currentUserDb = mDatabase.child(id_number)
+
+
 
         currentUserDb.child("Foundation")
             .child("first_Floor").setValue(foundation1.text.toString())
@@ -134,18 +172,18 @@ class Application2 : AppCompatActivity() {
         currentUserDb.child("Fixtures")
             .child("secondFloor").setValue(fixtures2.text.toString())
 
-        val total = foundation1.text.toString().toLong() + foundation2.text.toString().toLong() +
-                column1.text.toString().toLong() + column2.text.toString().toLong() + bean1.text.toString().toLong() +
-                bean2.text.toString().toLong() + trus1.text.toString().toLong() + trus2.text.toString().toLong() +
-                roof1.text.toString().toLong() + roof2.text.toString().toLong() + exterior1.text.toString().toLong() +
-                exterior2.text.toString().toLong() + flooring1.text.toString().toLong() + flooring2.text.toString().toLong() +
-                door1.text.toString().toLong() + door2.text.toString().toLong() + ceiling1.text.toString().toLong() +
-                ceiling2.text.toString().toLong() + window1.text.toString().toLong() + window2.text.toString().toLong() +
-                stairs1.text.toString().toLong() + stairs2.text.toString().toLong() + partition1.text.toString().toLong() +
-                partition2.text.toString().toLong() + wallfinish1.text.toString().toLong() + wallfinish2.text.toString().toLong() +
-                electrical1.text.toString().toLong() + electrical2.text.toString().toLong() + toiletbath1.text.toString().toLong() +
-                toiletbath2.text.toString().toLong() + plumbingsewer1.text.toString().toLong() + plumbingsewer2.text.toString().toLong() +
-                fixtures1.text.toString().toLong() + fixtures2.text.toString().toLong()
+        val total = foundation1.text.toString().replace(",","").toLong() + foundation2.text.toString().replace(",","").toLong() +
+                column1.text.toString().replace(",","").toLong() + column2.text.toString().replace(",","").toLong() + bean1.text.toString().replace(",","").toLong() +
+                bean2.text.toString().replace(",","").toLong() + trus1.text.toString().replace(",","").toLong() + trus2.text.toString().replace(",","").toLong() +
+                roof1.text.toString().replace(",","").toLong() + roof2.text.toString().replace(",","").toLong() + exterior1.text.toString().replace(",","").toLong() +
+                exterior2.text.toString().replace(",","").toLong() + flooring1.text.toString().replace(",","").toLong() + flooring2.text.toString().replace(",","").toLong() +
+                door1.text.toString().replace(",","").toLong() + door2.text.toString().replace(",","").toLong() + ceiling1.text.toString().replace(",","").toLong() +
+                ceiling2.text.toString().replace(",","").toLong() + window1.text.toString().replace(",","").toLong() + window2.text.toString().replace(",","").toLong() +
+                stairs1.text.toString().replace(",","").toLong() + stairs2.text.toString().replace(",","").toLong() + partition1.text.toString().replace(",","").toLong() +
+                partition2.text.toString().replace(",","").toLong() + wallfinish1.text.toString().replace(",","").toLong() + wallfinish2.text.toString().replace(",","").toLong() +
+                electrical1.text.toString().replace(",","").toLong() + electrical2.text.toString().replace(",","").toLong() + toiletbath1.text.toString().replace(",","").toLong() +
+                toiletbath2.text.toString().replace(",","").toLong() + plumbingsewer1.text.toString().replace(",","").toLong() + plumbingsewer2.text.toString().replace(",","").toLong() +
+                fixtures1.text.toString().replace(",","").toLong() + fixtures2.text.toString().replace(",","").toLong()
 
         val intent = Intent(this, Application3::class.java)
         intent.putExtra("id_number", id_number)

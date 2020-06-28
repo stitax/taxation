@@ -110,6 +110,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="25dp"
+            android:textColor="#000000"
             android:background="@drawable/editform"
             android:id="@+id/value_two"
             android:textSize="25sp"
