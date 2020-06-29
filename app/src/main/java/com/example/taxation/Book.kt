@@ -6,6 +6,8 @@ import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.View
 import android.view.View.OnTouchListener
+import android.widget.PopupWindow
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -22,16 +24,17 @@ class Book : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book)
-        user_agreement.movementMethod = ScrollingMovementMethod()
-        scrollview1.setOnTouchListener(OnTouchListener { v, event ->
-            user_agreement.getParent().requestDisallowInterceptTouchEvent(false)
-            false
-        })
-        user_agreement.setOnTouchListener({ v, event ->
-            user_agreement.getParent().requestDisallowInterceptTouchEvent(true)
-            false
-        })
 
+        click_agreement.setOnClickListener{
+            val window = PopupWindow(this)
+            val view = layoutInflater.inflate(R.layout.user_agreement, null)
+            window.contentView = view
+            val textView = view.findViewById<TextView>(R.id.user_agreement)
+            textView.setOnClickListener {
+                window.dismiss()
+            }
+            window.showAtLocation(click_agreement,1,0,0)
+        }
         val mDatabase = FirebaseDatabase.getInstance().getReference("Appointment")
         var today = ""
 
